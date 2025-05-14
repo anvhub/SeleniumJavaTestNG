@@ -3,6 +3,7 @@ package utilities;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,6 +57,6 @@ public class WaitUtilities {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-	
+ 
 	
 }

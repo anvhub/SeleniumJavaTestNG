@@ -2,6 +2,7 @@ package elementRepository;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -85,20 +86,24 @@ public class ManageCategoryPage {
     }
 
     public boolean isCategoryPresentInTable(String categoryName) {
-                List<WebElement> updatedSearchResults = searchResults;
-        for (WebElement row : updatedSearchResults) {
-            if (row.getText().contains(categoryName)) {
-                return true;
-            }
-        }
-        return false;
-    }
+		try {
+			List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-bordered table-hover table-sm']//tbody/tr"));
+			for (WebElement row : rows) {
+				if (row.getText().contains(categoryName)) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Exception in isCategoryPresentInTable: " + e.getMessage());
+		}
+		return false;
+	}
 
     public void editCategoryByName(String oldName, String newName) {
         searchCategoryByName(oldName);
         for (WebElement row : searchResults) {
             if (row.getText().contains(oldName)) {
-                row.findElement(org.openqa.selenium.By.xpath(".//a[contains(@href,'edit')]")).click();
+                row.findElement(By.xpath(".//a[contains(@href,'edit')]")).click();
                 categoryName.clear();
                 categoryName.sendKeys(newName);
                 saveBtn.click();
@@ -111,7 +116,7 @@ public class ManageCategoryPage {
         searchCategoryByName(categoryNameToDelete);
         for (WebElement row : searchResults) {
             if (row.getText().contains(categoryNameToDelete)) {
-                row.findElement(org.openqa.selenium.By.xpath(".//a[@class='btn btn-sm btn btn-danger btncss']")).click();
+                row.findElement(By.xpath(".//a[@class='btn btn-sm btn btn-danger btncss']")).click();
                 driver.switchTo().alert().accept();
                 break;
             }

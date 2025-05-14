@@ -38,17 +38,17 @@ public class ManageCategoryTest extends BaseClass {
         }
     }
 
-    @Test(priority = 2)
-    public void verifyCategoryIsListedWhileSearching() throws IOException {
-        lp = new LoginPage(driver);
-        ap = lp.login(groceryData(1, 0), groceryData(1, 1));
-        cp = ap.clickOnManageCategoryTab();
-        String categoryToSearch = "Groceries";
-        cp.searchCategoryByName(categoryToSearch);
-        String actual = cp.isCategoryPresentInTable(categoryToSearch) ? categoryToSearch : "Not Found";
-        String expected = categoryToSearch;
-        Assert.assertEquals(actual, expected, Constant.cp_verifyCategoryIsListedWhileSearching);
-    }
+	@Test(priority = 2)
+	public void verifyCategoryIsListedWhileSearching() throws IOException {
+	    lp = new LoginPage(driver);
+	    ap = lp.login(groceryData(1, 0), groceryData(1, 1));
+	    cp = ap.clickOnManageCategoryTab();
+	    String categoryToSearch = "Groceries";
+	    cp.searchCategoryByName(categoryToSearch);
+	    String actual = cp.isCategoryPresentInTable(categoryToSearch) ? categoryToSearch : "Not Found";
+	    String expected = categoryToSearch;
+	    Assert.assertEquals(actual, expected, Constant.cp_verifyCategoryIsListedWhileSearching);
+	}
 
     @Test(priority = 3)
     public void verifyCategoryIsEditedSuccessfully() throws InvalidFormatException, IOException {
