@@ -7,17 +7,12 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="testCase.LoginPageTest"></class>
-			<class name="testCase.ManageCategoryTest"></class>
-			<class name="testCase.ManageContactUsTest"></class>
-			<class name="testCase.ManageFooterTest"></class>
-			<class name="testCase.ManageNewsTest"></class>
+			<class name="testCase.ManageCategoryTest"></class>			
 		</classes>
 	</test>
 	<test name="FirefoxTest">
 		<parameter name="browser" value="firefox"></parameter>
-		<classes>
-			<class name="testCase.LoginPageTest"></class>
-			<class name="testCase.ManageCategoryTest"></class>
+		<classes>			
 			<class name="testCase.ManageContactUsTest"></class>
 			<class name="testCase.ManageFooterTest"></class>
 			<class name="testCase.ManageNewsTest"></class>

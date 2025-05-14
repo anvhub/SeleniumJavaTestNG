@@ -39,7 +39,6 @@ public class AdminPage {
 	public ManageCategoryPage clickOnManageCategoryTab() {
 		manageCategoryTab.click();
 		return new ManageCategoryPage(driver);
-
 	}
 
 	public ManageContactUsPage clickOnManageContactTab() {
