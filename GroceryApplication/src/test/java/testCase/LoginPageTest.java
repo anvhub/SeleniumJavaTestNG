@@ -15,10 +15,9 @@ public class LoginPageTest extends BaseClass {
 	LoginPage lp;
 	AdminPage ap;
 
-	@Test
+	@Test(groups = {"smoke"})
 	public void verifyDashboardTextWhileLoginWithValidCredentials() throws InvalidFormatException, IOException {
-		lp = new LoginPage(driver);
-		//ap = new AdminPage(driver);
+		lp = new LoginPage(driver);		
 		ap=lp.login(groceryData(1,0),groceryData(1,1));
 		String actual = ap.getDashboardString();
 		String expected = "Dashboard";
@@ -37,5 +36,5 @@ public class LoginPageTest extends BaseClass {
 		String expected = "×\n"
 				+ "Alert!\n"
 				+ "Invalid Username/Password";
-		Assert.assertEquals(actual, expected, "::Error Message not as expected");
-}}
+		Assert.assertEquals(actual, expected,Constant.lp_verifyTheErrorMessageWhileLoginWithInvalidCredentials);
+}} 

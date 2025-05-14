@@ -6,10 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FakerUtility;
+import utilities.GeneralUtilities;
+import utilities.WaitUtilities;
 
 public class ManageContactUsPage {
 	WebDriver driver;
 	FakerUtility fu;
+	WaitUtilities wu = new WaitUtilities();
+	GeneralUtilities gu = new GeneralUtilities();
 
 	public ManageContactUsPage(WebDriver driver) {
 		this.driver = driver;

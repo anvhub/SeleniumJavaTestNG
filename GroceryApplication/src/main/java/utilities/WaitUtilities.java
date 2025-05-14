@@ -28,10 +28,10 @@ public class WaitUtilities {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    // Wait for element to be present in DOM
-    public void waitForPresenceOfElement(WebDriver driver, By locator, int timeoutInSeconds) {
+ // Wait for element to be present in DOM and return it
+    public WebElement waitForPresenceOfElement(WebDriver driver, By locator, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     // Wait for alert to be present
@@ -50,6 +50,11 @@ public class WaitUtilities {
     public void waitForUrlContains(WebDriver driver, String partialUrl, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
         wait.until(ExpectedConditions.urlContains(partialUrl));
+    }
+    
+    public WebElement waitForVisibilityOfElement(WebDriver driver, By locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 	
 	

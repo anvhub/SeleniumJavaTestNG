@@ -6,11 +6,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FakerUtility;
+import utilities.GeneralUtilities;
+import utilities.WaitUtilities;
 
 public class ManageFooterPage {
 
 	WebDriver driver;
 	FakerUtility fu;
+	WaitUtilities wu = new WaitUtilities();
+	GeneralUtilities gu = new GeneralUtilities();
 
 	public ManageFooterPage(WebDriver driver) {
 		this.driver = driver;
